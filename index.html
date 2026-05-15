@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Photo Puzzle</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-bar" aria-label="Game status">
+        <div>
+          <p class="eyebrow">Photo Puzzle</p>
+          <h1>把你的照片拼回来</h1>
+        </div>
+        <button class="icon-button" id="previewButton" type="button" aria-label="查看原图" title="查看原图">
+          <span aria-hidden="true">□</span>
+        </button>
+      </section>
+
+      <section class="stage" aria-label="Puzzle board">
+        <div class="upload-panel" id="uploadPanel">
+          <input id="photoInput" type="file" accept="image/*" />
+          <label class="upload-target" for="photoInput">
+            <span class="upload-icon" aria-hidden="true">+</span>
+            <strong>上传一张照片</strong>
+            <span>选择照片开始一局，相邻块可以交换</span>
+          </label>
+        </div>
+
+        <div class="board-wrap is-hidden" id="boardWrap">
+          <div class="board" id="board" aria-label="拼图棋盘"></div>
+          <div class="win-card is-hidden" id="winCard" role="status">
+            <strong>拼好了！</strong>
+            <span id="winStats"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Puzzle controls">
+        <div class="stat">
+          <span>步数</span>
+          <strong id="moves">0</strong>
+        </div>
+        <div class="stat">
+          <span>时间</span>
+          <strong id="timer">00:00</strong>
+        </div>
+        <label class="select-wrap">
+          <span>难度</span>
+          <select id="difficulty">
+            <option value="3">3 x 3</option>
+            <option value="4" selected>4 x 4</option>
+            <option value="5">5 x 5</option>
+          </select>
+        </label>
+        <button class="primary-button" id="shuffleButton" type="button">重新打乱</button>
+      </section>
+    </main>
+
+    <dialog class="preview-dialog" id="previewDialog">
+      <button class="close-button" id="closePreviewButton" type="button" aria-label="关闭预览">×</button>
+      <img id="previewImage" alt="上传的原图预览" />
+    </dialog>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
