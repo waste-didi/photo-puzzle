@@ -69,7 +69,7 @@ h1 {
   letter-spacing: 0;
 }
 
-.icon-button,
+.preview-button,
 .close-button {
   width: 48px;
   aspect-ratio: 1;
@@ -82,13 +82,32 @@ h1 {
   box-shadow: 0 8px 20px rgba(23, 33, 29, 0.08);
 }
 
-.icon-button span {
-  width: 22px;
-  height: 22px;
-  border: 2px solid currentColor;
-  border-radius: 4px;
+.preview-button {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.preview-button img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-button.has-image img {
   display: block;
-  color: transparent;
+}
+
+.preview-button.has-image .preview-placeholder {
+  display: none;
+}
+
+.preview-placeholder {
+  color: var(--accent-dark);
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .stage {
@@ -248,6 +267,10 @@ h1 {
   gap: 2px;
 }
 
+.select-wrap {
+  grid-column: 1 / -1;
+}
+
 .stat span,
 .select-wrap span {
   color: var(--muted);
@@ -268,7 +291,6 @@ select {
 }
 
 .primary-button {
-  grid-column: 1 / -1;
   background: var(--accent);
   color: #fff;
   border-color: transparent;
@@ -276,9 +298,20 @@ select {
 }
 
 .primary-button:active,
-.icon-button:active,
+.secondary-button:active,
+.preview-button:active,
 .close-button:active {
   transform: translateY(1px);
+}
+
+.secondary-button {
+  min-height: 58px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  box-shadow: 0 8px 20px rgba(23, 33, 29, 0.08);
+  font-weight: 850;
 }
 
 .preview-dialog {
@@ -319,9 +352,10 @@ select {
   }
 
   .controls {
-    grid-template-columns: 1fr 1fr 1.1fr 1.25fr;
+    grid-template-columns: 1fr 1fr 1.1fr 1.25fr 1fr;
   }
 
+  .select-wrap,
   .primary-button {
     grid-column: auto;
   }

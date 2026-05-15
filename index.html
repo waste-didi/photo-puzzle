@@ -13,8 +13,9 @@
           <p class="eyebrow">Photo Puzzle</p>
           <h1>把你的照片拼回来</h1>
         </div>
-        <button class="icon-button" id="previewButton" type="button" aria-label="查看原图" title="查看原图">
-          <span aria-hidden="true">□</span>
+        <button class="preview-button" id="previewButton" type="button" aria-label="查看原图" title="查看原图">
+          <span class="preview-placeholder" aria-hidden="true">+</span>
+          <img id="previewThumb" alt="" />
         </button>
       </section>
 
@@ -55,6 +56,7 @@
           </select>
         </label>
         <button class="primary-button" id="shuffleButton" type="button">重新打乱</button>
+        <button class="secondary-button" id="newPhotoButton" type="button">换照片</button>
       </section>
     </main>
 

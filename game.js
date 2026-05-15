@@ -7,7 +7,9 @@ const movesEl = document.querySelector("#moves");
 const timerEl = document.querySelector("#timer");
 const difficultySelect = document.querySelector("#difficulty");
 const shuffleButton = document.querySelector("#shuffleButton");
+const newPhotoButton = document.querySelector("#newPhotoButton");
 const previewButton = document.querySelector("#previewButton");
+const previewThumb = document.querySelector("#previewThumb");
 const previewDialog = document.querySelector("#previewDialog");
 const closePreviewButton = document.querySelector("#closePreviewButton");
 const previewImage = document.querySelector("#previewImage");
@@ -214,6 +216,8 @@ async function loadPhotoFile(file) {
 
   imageUrl = URL.createObjectURL(file);
   previewImage.src = imageUrl;
+  previewThumb.src = imageUrl;
+  previewButton.classList.add("has-image");
 
   try {
     puzzleImageUrl = await buildSquarePuzzleImage(imageUrl);
@@ -254,6 +258,10 @@ uploadTarget.addEventListener("drop", (event) => {
 
 difficultySelect.addEventListener("change", startGame);
 shuffleButton.addEventListener("click", startGame);
+newPhotoButton.addEventListener("click", () => {
+  photoInput.value = "";
+  photoInput.click();
+});
 
 previewButton.addEventListener("click", () => {
   if (!imageUrl) {
