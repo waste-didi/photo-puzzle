@@ -298,20 +298,9 @@ select {
 }
 
 .primary-button:active,
-.secondary-button:active,
 .preview-button:active,
 .close-button:active {
   transform: translateY(1px);
-}
-
-.secondary-button {
-  min-height: 58px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.88);
-  color: var(--ink);
-  box-shadow: 0 8px 20px rgba(23, 33, 29, 0.08);
-  font-weight: 850;
 }
 
 .preview-dialog {
